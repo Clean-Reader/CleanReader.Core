@@ -1,0 +1,24 @@
+{
+  "name": "cleanreader.web",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.25",
+    "vue3-touch-events": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@vitejs/plugin-vue": "^2.0.0",
+    "epubjs": "^0.3.93",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vue-tsc": "^0.29.8",
+    "vue3-keypress": "^4.0.1",
+    "vue3-resize": "^0.2.0",
+    "xmldom": "^0.6.0"
+  }
+}
