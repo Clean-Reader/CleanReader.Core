@@ -4,14 +4,14 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, watch, getCurrentInstance } from "vue";
-import { Book, Contents, Rendition } from "epubjs";
+import { Book, Contents, Rendition } from "epubjs-cr";
 import Toc from "../types/toc";
 import Loc from "../types/location";
 import Page from "../types/page";
 import { HighlightSlim } from "../types/highlight";
-import Locations from "epubjs/types/locations";
-import { RenditionOptions } from "epubjs/types/rendition";
-import { BookOptions } from "epubjs/types/book";
+import Locations from "epubjs-cr/types/locations";
+import { RenditionOptions } from "epubjs-cr/types/rendition";
+import { BookOptions } from "epubjs-cr/types/book";
 
 interface IReaderState {
   isLoaded: boolean;
@@ -114,6 +114,7 @@ function changeLocation(loc: Loc) {
   const navItem = state.book.navigation.get(spineItem.href);
   const chapterName = navItem && navItem.label.trim();
   const chapterId = navItem && navItem.id;
+  const chapterHref = spineItem.href;
 
   const locations: any = state.book.locations;
   const currentPage = locations.locationFromCfi(startCfi);
@@ -121,6 +122,7 @@ function changeLocation(loc: Loc) {
 
   sendMessage("Progress", {
     chapterId,
+    chapterHref,
     chapterName,
     currentPage,
     totalPage,

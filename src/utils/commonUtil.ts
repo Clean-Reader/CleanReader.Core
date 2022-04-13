@@ -1,4 +1,4 @@
-import { EpubCFI } from 'epubjs'
+import { EpubCFI } from 'epubjs-cr'
 // types
 import { BookStyle, BookFlow } from '../types/book'
 

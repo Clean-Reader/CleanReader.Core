@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { Book, Rendition, Contents } from "epubjs"
+import { Book, Rendition, Contents } from "epubjs-cr"
 import { reactive, watch, onMounted, getCurrentInstance } from "vue";
 import EpubReader from './EpubReader.vue';
 import { timeFormatter } from '../utils/commonUtil'
