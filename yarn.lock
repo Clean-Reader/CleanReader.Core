@@ -339,10 +339,10 @@ entities@^3.0.1:
   resolved "https://registry.nlark.com/entities/download/entities-3.0.1.tgz#2b887ca62585e96db3903482d336c1006c3001d4"
   integrity sha1-K4h8piWF6W2zkDSC0zbBAGwwAdQ=
 
-epubjs-cr@^0.3.98:
-  version "0.3.98"
-  resolved "https://registry.npmjs.org/epubjs-cr/-/epubjs-cr-0.3.98.tgz#1da0b30b5e87c0ff20cc283f0024c9a44227d717"
-  integrity sha512-wcaR+yAWh5vT1cYBHX2ay+zNthbwrefdeb/IFAQOkftVc248q6onTp0eLZ6CbEo11Ny+hyASIdw0RIRCjLJq2Q==
+epubjs-cr@^0.3.99:
+  version "0.3.99"
+  resolved "https://registry.npmjs.org/epubjs-cr/-/epubjs-cr-0.3.99.tgz#59979695cddfe1c078c795688e05b48e3400f233"
+  integrity sha512-ZrjGcF8DuIzn8RTIOYlWSHvyvI4Q4m38/8AQ/8ZJeSXf/KabjQoeQAUgVXgNqUunv+UQQpqQrnhbn+YS81O8TA==
   dependencies:
     "@types/localforage" "0.0.34"
     "@xmldom/xmldom" "^0.7.5"

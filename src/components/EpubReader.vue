@@ -478,8 +478,11 @@ function onTap(e: MouseEvent | TouchEvent) {
   } else if (x > clientWidth - sideWidth) {
     movePage("NEXT");
   } else {
-    // click center, popup controls panel.
-    sendMessage("Menu", x);
+    var eleName = (<any>e).srcElement.tagName;
+    if (eleName != 'A') {
+      // click center, popup controls panel.
+      sendMessage("Menu", x);
+    }
   }
 }
 
