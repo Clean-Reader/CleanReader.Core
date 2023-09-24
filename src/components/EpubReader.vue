@@ -25,6 +25,7 @@ interface IReaderState {
   tempLocation: any;
   justResized: boolean;
   correcting: boolean;
+  lastChapterContent: string;
 }
 
 interface IReaderProps {
@@ -57,6 +58,7 @@ const state: IReaderState = reactive({
   tempLocation: null,
   justResized: false,
   correcting: false,
+  lastChapterContent: '',
 });
 
 const props = withDefaults(defineProps<IReaderProps>(), {
@@ -120,6 +122,19 @@ function changeLocation(loc: Loc) {
   const currentPage = locations.locationFromCfi(startCfi);
   const totalPage = locations.total;
 
+  let content = state.rendition?.getContents();
+  if (content)
+  {
+    let text = content[0].documentElement.innerText;
+    if(text != state.lastChapterContent)
+    {
+      state.lastChapterContent = text;
+      sendMessage("PageContent", {
+        content: text
+      });
+    }
+  }
+
   sendMessage("Progress", {
     chapterId,
     chapterHref,
@@ -133,6 +148,15 @@ function changeLocation(loc: Loc) {
 
   state.currentCfi = startCfi;
   InitializeHighlighClicks();
+
+  let endRange = state.rendition?.getRange(endCfi);
+  if (endRange)
+  {
+    sendMessage("PageContentOffset",{
+      cfi: endCfi,
+      offset: endRange.endOffset
+    })
+  }
 }
 
 function highlight(cfiRange: string, color?: string) {
@@ -357,6 +381,11 @@ function touchCancelEvent() {
 }
 
 function touchEndEvent(event) {
+  if(event.button == 2)
+  {
+    return;
+  }
+  
   let $this = state.touchEvent,
     isTouchEvent = event.type.indexOf("touch") >= 0,
     isMouseEvent = event.type.indexOf("mouse") >= 0;
